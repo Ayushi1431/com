@@ -1,0 +1,744 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #1f1c2c, #928dab);
+    color: white;
+    text-align: center;
+    overflow-x: hidden;
+    position: relative;
+    scroll-behavior: smooth; /* Smooth scrolling fix */
+}
+
+/* Particle Background */
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    pointer-events: none;
+}
+
+/* Animated Floating Dots */
+.animated-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.floating-dots {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.floating-dots span {
+    position: absolute;
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    animation: floatAnimation 10s infinite linear;
+}
+
+.floating-dots span:nth-child(1) { top: 20%; left: 10%; animation-duration: 8s; }
+.floating-dots span:nth-child(2) { top: 50%; left: 30%; animation-duration: 12s; }
+.floating-dots span:nth-child(3) { top: 70%; left: 70%; animation-duration: 10s; }
+.floating-dots span:nth-child(4) { top: 40%; left: 90%; animation-duration: 7s; }
+
+@keyframes floatAnimation {
+    0% { transform: translateY(0px); opacity: 0.5; }
+    50% { transform: translateY(-30px); opacity: 1; }
+    100% { transform: translateY(0px); opacity: 0.5; }
+}
+
+/* Navigation Bar */
+nav {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #63526d;
+}
+
+/* Home Section */
+.home-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 100vh;
+    padding: 20px;
+    text-align: left;
+}
+
+.home-content {
+    max-width: 50%;
+    animation: fadeIn 2s;
+}
+
+.home-content h1 {
+    font-size: 50px;
+    margin: 0;
+    animation: slideInLeft 1.5s ease-in-out;
+}
+
+.home-content p {
+    font-size: 20px;
+    margin: 10px 0 20px;
+    animation: slideInRight 1.5s ease-in-out;
+}
+
+.button-container {
+    display: flex;
+    gap: 15px;
+}
+
+.glowing-btn, .linkedin-btn {
+    padding: 12px 26px;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.glowing-btn {
+    background: transparent;
+}
+
+.glowing-btn:hover {
+    background: #7a7498;
+    transform: scale(1.1);
+}
+
+.linkedin-btn {
+    background: #1f1c2c;
+    color: white;
+}
+
+.linkedin-btn:hover {
+    background: #7a7498;
+    transform: scale(1.1);
+}
+
+.profile-pic {
+    /*width: 300px;
+    height: 350px;
+    border-radius: 10px;
+    background: url('my-profile.png') no-repeat center;
+    background-size: cover;
+    border: 3px solid rgba(255, 255, 255, 0.5);*/
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.profile-pic:hover {
+    transform: rotate(-5deg) scale(1.1);
+}
+
+/*blob frame for profile pic */
+.blob-frame {
+    position: relative;
+    width: 340px;
+    height: 340px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: blobAnimation 8s infinite ease-in-out;
+}
+
+.blob-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 40% 60% 60% 40% / 50% 30% 70% 50%;
+    animation: blobAnimation 8s infinite ease-in-out;
+}
+
+@keyframes blobAnimation {
+    0% { border-radius: 40% 60% 60% 40% / 50% 30% 70% 50%; }
+    50% { border-radius: 60% 40% 50% 50% / 40% 60% 30% 70%; }
+    100% { border-radius: 40% 60% 60% 40% / 50% 30% 70% 50%; }
+}
+
+.typing-animation{
+    padding-top: 30px;
+    padding-bottom: 30px;
+
+    font-size: 35px;
+    color: white;
+}
+
+/* Skill section */
+.skills-container {
+    min-height: 700px;
+    padding: 50px;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+/* Updated about section */
+.cont {
+    padding-left: 60px;
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap; /* Responsive layout */
+    justify-content: center;
+}
+
+/* Card styling with customizable width and height */
+.abtcard {
+    background: transparent;
+    border-radius: 40px;
+    box-shadow: 5px 5px 10px #0b090b3d, -5px -5px 10px #2e292fcf;
+    padding: 40px;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box;
+
+    /* Custom height and width control */
+    --card-width: 320px;
+    --card-height: auto; /* Adjust automatically if not defined */
+
+    width: var(--card-width);
+    height: var(--card-height);
+}
+
+.abtcard:hover {
+    transform: scale(1.05);
+    box-shadow: 5px 5px 15px #312a35, -5px -5px 15px #2a262c;
+}
+
+/* Left panel customization */
+.lft-pnl {
+    padding-left: 0;
+    text-align: center;
+}
+
+/* Profile image */
+.prff-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 20px auto;
+}
+
+.prff-img img {
+    width: 100%;
+    height: auto;
+}
+
+/* Title styling */
+.ayu {
+    font-size: 28px;
+    color: #ffffff;
+}
+
+/* Information list */
+.inf-lst {
+    list-style: none;
+    padding: 0;
+}
+
+.inf-lst li {
+    margin: 15px 0;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Circular progress */
+.crcl-crt {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    position: relative;
+    margin: 20px auto;
+}
+
+.crcl {
+    width: 100%;
+    height: 100%;
+    background: conic-gradient(
+        #f79ea3 25%,
+        #a8b4c3 25% 40%,
+        #f4a261 40% 60%,
+        #2a9d8f 60% 80%,
+        #e9c46a 80% 90%,
+        #264653 90% 100%
+    );
+    border-radius: 50%;
+}
+
+.crcl-inr {
+    width: 100px;
+    height: 100px;
+    background: #252128;
+    border-radius: 50%;
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    font-size: 22px;
+}
+
+
+/* Communication section */
+.com-sec {
+    display: flex;
+    padding: 5px;
+    align-items: center;
+    gap: 10px;
+}
+
+.com {
+    height: 30px;
+    width: 30px;
+}
+
+.com1 {
+    color: rgb(255, 255, 255);
+    margin: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .skills-container {
+        min-height: auto;
+        padding: 30px 10px;
+    }
+
+    .abtcard {
+        padding: 20px;
+        --card-width: 100%; /* Full width on small screens */
+    }
+
+    .cont {
+        padding-left: 0;
+    }
+}
+
+/* Example usage:
+   - To control card size, set CSS variables in the HTML.
+   Example:
+   <div class="abtcard" style="--card-width: 400px; --card-height: 450px;">...</div>
+*/
+
+
+
+/* Projects Section */
+.projects-container {
+    
+    min-height: 640px;
+    padding: 50px 20px;
+    background: rgba(5, 0, 0, 0.7);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+}
+
+.proj-cont.cpu {
+    max-width: 1300px;
+    margin: 0 auto; /* Centering the container */
+    text-align: center;
+}
+
+.proap {
+    font-size: 3rem;
+    margin-bottom: 30px;
+    color: #f5f6f6;
+}
+
+.prjct.cpu {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 40px;
+    padding-top: 20px;
+}
+
+.prjct-crd.cpu {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.prjct-crd.cpu:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+}
+
+.prjct-img.cpu {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+}
+
+.prjct-cont.cpu {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    text-align: left;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.prjct-crd.cpu:hover .prjct-cont.cpu {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.prjct-ttl.cpu {
+    
+    font-size: 1.8rem;
+    margin: 0 0 10px;
+    color: #fafefc;
+    
+}
+
+.prjct-des.cpu {
+    padding:5px;
+    font-size: 15px;
+    margin-bottom: 15px;
+}
+.dessry{
+    color: white;
+    font-size: 15px;
+    padding: 8px;
+}
+
+.prjct-btn.cpu {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #35243da5;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    border-radius: 8px;
+    
+
+
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+   /* transform: perspective(1000px) rotateX(10deg);*/
+}
+
+.prjct-btn.cpu:hover {
+    background: linear-gradient(145deg, #352c3e, #3a3b4e);
+    transform: perspective(1000px) rotateX(0deg) translateY(-5px);
+    box-shadow: 0 8px 16px rgba(35, 36, 51, 0.6);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .proap {
+        font-size: 2.5rem; /* Slightly smaller heading on tablets */
+    }
+
+    .prjct.cpu {
+        gap: 30px; /* Reduced gap for tablets */
+    }
+
+    .prjct-img.cpu {
+        height: 280px; /* Smaller image height */
+    }
+}
+
+@media (max-width: 768px) {
+    .proap {
+        font-size: 2rem; /* Smaller heading for mobile */
+    }
+
+    .prjct.cpu {
+        grid-template-columns: 1fr; /* Single column on small screens */
+        gap: 20px; /* Reduced gap */
+    }
+
+    .prjct-img.cpu {
+        height: 250px; /* Smaller image */
+    }
+
+    .prjct-cont.cpu {
+        padding: 15px; /* Adjust padding */
+    }
+
+    .prjct-ttl.cpu {
+        font-size: 1.5rem; /* Smaller title */
+    }
+}
+
+@media (max-width: 480px) {
+    .projects-container {
+        padding: 30px 10px; /* Less padding for very small screens */
+    }
+
+    .proap {
+        font-size: 1.8rem; /* More compact heading */
+    }
+
+    .prjct-img.cpu {
+        height: 200px; /* Compact image */
+    }
+
+    .prjct-btn.cpu {
+        padding: 8px 16px; /* Smaller button */
+    }
+}
+
+/* About Section */
+/* About Section */
+/* About Section */
+.about1-container {
+    height: auto;
+    padding: 65px;
+}
+
+.contactary-container {
+    text-align: center;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.contactary-info {
+    margin-left: 150px;
+    padding-bottom: 30px;
+    display: flex;
+    text-decoration: none;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.contactary-card {
+    flex: 1;
+    box-shadow: 5px 5px 10px #3837373d, -5px -5px 10px #847a88cf;
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+    padding: 30px;
+    border-radius: 20px;
+    transform: translateY(20px);
+    transition: transform 0.6s, box-shadow 0.6s;
+    text-align: center;
+    text-decoration: none;
+}
+
+/* Resume card ko last se email address ke side le aane ka update */
+.contactary-card:last-child {
+    order: -1; 
+}
+
+.resume-link {
+    text-decoration: none;
+}
+
+.contactary-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+.iconary-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #ffffff;
+    margin: 0 auto 20px;
+    overflow: hidden; /* Ensure images don't overflow */
+}
+
+.iconary-circle img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+h3 {
+    margin: 10px 0;
+}
+
+.ctryy-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+    gap: 20px;
+    padding-top: 50px;
+}
+
+.ctryy-btn {
+    padding: 15px 40px;
+    background: transparent;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 50px;
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    transform: perspective(1000px) rotateX(10deg);
+}
+
+/* 3D Button Pop-Out Hover Effect */
+.ctryy-btn:hover {
+    background: linear-gradient(145deg, #524262, #787aa1);
+    transform: perspective(1000px) rotateX(0deg) translateY(-5px);
+    box-shadow: 0 8px 16px rgba(89, 94, 185, 0.6);
+}
+
+.lol-links {
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap; /* Icons responsive honge */
+}
+
+.lol-icon {
+    display: inline-flex;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #ffffff;
+    transition: transform 0.4s, box-shadow 0.4s;
+    box-shadow: 0 4px 8px rgba(79, 66, 82, 0.61);
+    transform: perspective(1000px) rotateX(10deg);
+    overflow: hidden;
+    background: linear-gradient(145deg, #937dab, #565770);
+    text-decoration: none; 
+}
+
+.lol-icon img {
+    width: 40px; 
+    height: 40px;
+    object-fit: contain; 
+}
+
+/* 3D Pop-Out Hover Effect */
+.lol-icon:hover {
+    transform: perspective(1000px) rotateX(0deg) translateY(-5px);
+    box-shadow: 0 8px 16px rgba(117, 86, 157, 0.6);
+}
+
+/* Adjusting the parent section */
+#lol {
+    margin-left: 170px;
+    position: relative;
+    z-index: 5;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .contactary-info {
+        margin-left: 0;
+        justify-content: center;
+    }
+
+    #lol {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .contactary-info {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contactary-card:last-child {
+        order: 0; 
+    }
+
+    .lol-links {
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .ctryy-btn {
+        padding: 10px 20px;
+    }
+
+    .lol-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .lol-icon img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .about1-container {
+        padding: 40px;
+    }
+}
+
+
+
+/*Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+    0% { opacity: 0; transform: translateX(-100px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+    0% { opacity: 0; transform: translateX(100px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
